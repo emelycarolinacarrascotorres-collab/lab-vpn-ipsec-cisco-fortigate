@@ -4,9 +4,9 @@ Laboratorio en GNS3 que interconecta una red de usuarios (router Cisco) con una 
 
 ## 🎥 Video demostrativo
 
-[![Ver video](docs/images/01-topologia-gns3.png)](ENLACE_DEL_VIDEO)
+[![Ver video](docs/images/01-topologia-gns3.png)]((https://youtu.be/La0apDXofok))
 
-> Enlace: **[ENLACE DEL VIDEO]**
+> Enlace: **[(https://youtu.be/La0apDXofok)]**
 
 ## Objetivos
 - Implementar un túnel VPN IPsec (IKEv1, modo túnel) entre un router Cisco IOS y un FortiGate.
