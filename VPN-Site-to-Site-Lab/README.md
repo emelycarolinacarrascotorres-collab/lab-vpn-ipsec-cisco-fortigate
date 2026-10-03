@@ -1,7 +1,7 @@
 # VPN Site-to-Site Lab: FortiGate ⇄ Cisco (IPsec)
 
 > ## 🎥 Video demostrativo
-> **PENDIENTE: video no entregado (NOT EVIDENCED).** Este espacio está reservado al inicio del README, como exige el requisito. Instrucciones en [`videos/LEEME.md`](videos/LEEME.md) y [`docs/09-publicar-en-github.md`](docs/09-publicar-en-github.md).
+>video (https://youtu.be/La0apDXofok)
 
 ## Propósito del laboratorio (Infraestructura 2)
 - Comunicar el **Usuario** con el **Servidor** a través del enlace VPN.
