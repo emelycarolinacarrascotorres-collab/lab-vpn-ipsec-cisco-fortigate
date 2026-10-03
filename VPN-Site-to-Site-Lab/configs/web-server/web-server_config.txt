@@ -1,0 +1,9 @@
+config server 
+ip addr flush dev eth0
+ip addr add 10.25.97.2/28 dev eth0
+ip link set eth0 up
+ip route add default via 10.25.97.1
+
+
+
+diagnose sniffer packet any 'host 10.25.5.13 and port 443' 4 10

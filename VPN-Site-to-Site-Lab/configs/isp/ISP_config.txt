@@ -1,0 +1,62 @@
+ISP
+
+enable
+configure terminal
+hostname ISP
+no ip domain-lookup
+
+banner motd # EMELY CARRASCO 2025-0697 | EL ACCESO NO AUTORIZADO ESTA RESTRINGIDO #
+
+username Admin privilege 15 secret Cisco@2025
+service password-encryption
+enable secret Cisco@2025
+
+ip domain-name redlocal.com
+crypto key generate rsa general-keys modulus 1024
+ip ssh version 2
+ip ssh time-out 60
+ip ssh authentication-retries 3
+
+line console 0
+ exec-timeout 5 0
+ logging synchronous
+
+line vty 0 4
+ login local
+ transport input ssh
+ exec-timeout 5 0
+ logging synchronous
+ 
+ interface g1/0
+ description HACIA-CISCO-USR
+ ip address 20.25.6.1 255.255.255.252
+ no shutdown
+
+interface g2/0
+ description HACIA-FORTIGATE
+ ip address 20.25.97.1 255.255.255.252
+ no shutdown
+
+interface g3/0
+description hacia el internet
+ip dhcp
+
+ip route 0.0.0.0 0.0.0.0 192.168.42.1
+
+interface GigabitEthernet1/0
+ ip nat inside
+exit
+interface GigabitEthernet2/0
+ ip nat inside
+exit
+interface GigabitEthernet3/0
+ ip nat outside
+exit
+ip access-list standard NAT_ACL
+ permit 20.25.97.0 0.0.0.3
+ permit 20.25.6.0 0.0.0.3
+exit
+ip nat inside source list NAT_ACL interface GigabitEthernet3/0 overload
+end
+wr
+

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="1100" height="700" fill="#ffffff"/>
+  <text x="550" y="30" text-anchor="middle" font-size="20" font-weight="700" fill="#1f2937">Topología real – VPN Site-to-Site IPsec (Cisco CISCO-SRV ⇄ FortiGate)</text>
+
+  <!-- Internet note -->
+  <rect x="420" y="48" width="260" height="34" rx="6" fill="#f3f4f6" stroke="#9ca3af" stroke-dasharray="5 4"/>
+  <text x="550" y="63" text-anchor="middle" font-size="11" fill="#4b5563">ISP g3/0 «hacia el internet» (DHCP, ruta por defecto 192.168.42.1)</text>
+  <text x="550" y="76" text-anchor="middle" font-size="10" fill="#6b7280">según ISP_config.txt – no visible en la captura GNS3</text>
+  <line x1="550" y1="82" x2="550" y2="110" stroke="#9ca3af" stroke-dasharray="5 4"/>
+
+  <!-- ISP -->
+  <rect x="430" y="110" width="240" height="90" rx="10" fill="#e0f2f1" stroke="#0f766e" stroke-width="2"/>
+  <text x="550" y="140" text-anchor="middle" font-size="16" font-weight="700" fill="#134e4a">ISP</text>
+  <text x="550" y="160" text-anchor="middle" font-size="12" fill="#134e4a">Router Cisco · NAT overload</text>
+  <text x="550" y="180" text-anchor="middle" font-size="12" fill="#134e4a">Enlaces /30 con IP públicas</text>
+
+  <!-- CISCO-SRV -->
+  <rect x="80" y="290" width="260" height="110" rx="10" fill="#e0ecff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="210" y="318" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a8a">CISCO-SRV (R1 en GNS3)</text>
+  <text x="210" y="342" text-anchor="middle" font-size="12" fill="#1e3a8a">g1/0 WAN-ISP: 20.25.6.2/30</text>
+  <text x="210" y="360" text-anchor="middle" font-size="12" fill="#1e3a8a">g2/0.10 VLAN10: 10.25.6.1/25 (DHCP)</text>
+  <text x="210" y="378" text-anchor="middle" font-size="12" fill="#1e3a8a">NAT overload + crypto map CMAP</text>
+
+  <!-- FortiGate -->
+  <rect x="760" y="290" width="260" height="110" rx="10" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="890" y="318" text-anchor="middle" font-size="16" font-weight="700" fill="#7f1d1d">FortiGate (7.0.9)</text>
+  <text x="890" y="342" text-anchor="middle" font-size="12" fill="#7f1d1d">port1 WAN: 20.25.97.2/30</text>
+  <text x="890" y="360" text-anchor="middle" font-size="12" fill="#7f1d1d">port2 LAN-SERVER: 10.25.97.1/28</text>
+  <text x="890" y="378" text-anchor="middle" font-size="12" fill="#7f1d1d">port3 (gestión): 192.168.99.1/24</text>
+
+  <!-- SW-1 -->
+  <rect x="80" y="470" width="260" height="70" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="210" y="498" text-anchor="middle" font-size="15" font-weight="700" fill="#78350f">SW-1 (Cisco IOSvL2)</text>
+  <text x="210" y="518" text-anchor="middle" font-size="12" fill="#78350f">Gi0/0 trunk · Gi0/1 acceso (VLAN 10)</text>
+
+  <!-- PC1 -->
+  <rect x="80" y="590" width="260" height="70" rx="10" fill="#ecfccb" stroke="#4d7c0f" stroke-width="2"/>
+  <text x="210" y="618" text-anchor="middle" font-size="15" font-weight="700" fill="#365314">PC1 (VPCS) – Usuario</text>
+  <text x="210" y="638" text-anchor="middle" font-size="12" fill="#365314">10.25.6.10/25 · GW 10.25.6.1 · DNS 8.8.8.8 (DHCP)</text>
+
+  <!-- Web server -->
+  <rect x="760" y="560" width="260" height="100" rx="10" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+  <text x="890" y="588" text-anchor="middle" font-size="15" font-weight="700" fill="#4c1d95">web-server-lab-1 (Apache2)</text>
+  <text x="890" y="612" text-anchor="middle" font-size="12" fill="#4c1d95">eth0: 10.25.97.2/28</text>
+  <text x="890" y="630" text-anchor="middle" font-size="12" fill="#4c1d95">GW 10.25.97.1 · red 10.25.97.0/28</text>
+
+  <!-- Links -->
+  <line x1="470" y1="200" x2="250" y2="290" stroke="#374151" stroke-width="2.5"/>
+  <line x1="630" y1="200" x2="850" y2="290" stroke="#374151" stroke-width="2.5"/>
+  <line x1="210" y1="400" x2="210" y2="470" stroke="#374151" stroke-width="2.5"/>
+  <line x1="210" y1="540" x2="210" y2="590" stroke="#374151" stroke-width="2.5"/>
+  <line x1="890" y1="400" x2="890" y2="560" stroke="#374151" stroke-width="2.5"/>
+
+  <!-- Link labels -->
+  <text x="335" y="238" text-anchor="end" font-size="11" fill="#111827">ISP g1/0 20.25.6.1/30</text>
+  <text x="335" y="254" text-anchor="end" font-size="11" fill="#111827">⇄ g1/0 20.25.6.2/30</text>
+  <text x="765" y="238" font-size="11" fill="#111827">ISP g2/0 20.25.97.1/30</text>
+  <text x="765" y="254" font-size="11" fill="#111827">⇄ port1 20.25.97.2/30</text>
+  <text x="222" y="436" font-size="11" fill="#111827">g2/0 ⇄ Gi0/0 (trunk, VLAN 10)</text>
+  <text x="222" y="568" font-size="11" fill="#111827">Gi0/1 (access VLAN 10)</text>
+  <text x="902" y="466" font-size="11" fill="#111827">port2 10.25.97.1/28</text>
+  <text x="902" y="482" font-size="11" fill="#111827">⇄ eth0 10.25.97.2/28</text>
+
+  <!-- VPN tunnel -->
+  <line x1="340" y1="345" x2="760" y2="345" stroke="#059669" stroke-width="5" stroke-dasharray="14 8"/>
+  <rect x="395" y="306" width="310" height="76" rx="8" fill="#ecfdf5" stroke="#059669"/>
+  <text x="550" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Túnel IPsec Site-to-Site «VPN-B-to-A»</text>
+  <text x="550" y="343" text-anchor="middle" font-size="11" fill="#065f46">IKEv1 · Main · PSK · DES / SHA-1 · DH 14</text>
+  <text x="550" y="359" text-anchor="middle" font-size="11" fill="#065f46">Peers: 20.25.6.2 ⇄ 20.25.97.2</text>
+  <text x="550" y="375" text-anchor="middle" font-size="11" fill="#065f46">Tráfico: 10.25.6.0/25 ⇄ 10.25.97.0/28</text>
+
+  <!-- Legend -->
+  <text x="420" y="520" font-size="12" font-weight="700" fill="#1f2937">Notas</text>
+  <text x="420" y="540" font-size="11" fill="#374151">• Direccionamiento tomado de configs y capturas entregadas.</text>
+  <text x="420" y="558" font-size="11" fill="#374151">• La captura GNS3 no rotula interfaces: la correspondencia</text>
+  <text x="420" y="574" font-size="11" fill="#374151">  g2/0 ⇄ Gi0/0 se deduce de las configuraciones.</text>
+  <text x="420" y="592" font-size="11" fill="#374151">• Pruebas web hechas desde un navegador Windows</text>
+  <text x="420" y="608" font-size="11" fill="#374151">  ausente de la topología (ver AUDIT.md).</text>
+</svg>
